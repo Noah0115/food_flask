@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      #box {
+        width: 200px;
+        height: 50px;
+        background-color: yellow;
+        position: relative;
+      }
+      #box p {
+        width: 300px;
+        height: 200px;
+        background-color: blue;
+        position: absolute;
+        left: 100px;
+        top: 100px;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box">
+      zyc的头像
+      <p>自我介绍</p>
+    </div>
+    <script>
+      box.onmouseover = function () {
+          this.firstElementChild.style.display="block"
+      };
+      box.onmouseout = function () {
+          this.firstElementChild.style.display="none"
+      };
+      box.onmousemove =function(evt){
+        this.firstElementChild.style.left=evt.offsetX +10+ 'px'
+        this.firstElementChild.style.top=evt.offsetY +10+ 'px'
+      }
+    </script>
+  </body>
+</html>

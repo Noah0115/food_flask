@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      ul li {
+        overflow: hidden;
+        height: 150px;
+      }
+      ul li img {
+        float: left;
+        width: 80px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>标题</h1>
+    <ul id="list">
+      <!-- <li>
+            <img src='https://pic.maizuo.com/usr/movie/be17f0784f8a83fbe6be79df1ce1914b.jpg?x-oss-process=image/quality,Q_70'>
+            <h3>哥斯拉大战金刚2：帝国崛起</h3>
+        </li> -->
+    </ul>
+    <script>
+      var arr1 = [
+        {
+          url: "https://pic.maizuo.com/usr/movie/be17f0784f8a83fbe6be79df1ce1914b.jpg?x-oss-process=image/quality,Q_70",
+          name: "哥斯拉大战金刚2：帝国崛起",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/57116f984c95f7e0abe768550bd78ef9.jpg?x-oss-process=image/quality,Q_70",
+          name: "你想活出怎样的人生",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/57116f984c95f7e0abe768550bd78ef9.jpg?x-oss-process=image/quality,Q_70",
+          name: "你想活出怎样的人生",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/57116f984c95f7e0abe768550bd78ef9.jpg?x-oss-process=image/quality,Q_70",
+          name: "你想活出怎样的人生",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/57116f984c95f7e0abe768550bd78ef9.jpg?x-oss-process=image/quality,Q_70",
+          name: "你想活出怎样的人生",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/adc91ba9d7505d7352260f9d4a6fcff2.jpg?x-oss-process=image/quality,Q_70",
+          name: "黄雀在后！",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/7a4e3daddbe3a35aa4247cb4ae6273cd.jpg?x-oss-process=image/quality,Q_70",
+          name: "草木人间",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/89d7a3bbd98d0ffab74da50cd03641e2.jpg?x-oss-process=image/quality,Q_70",
+          name: "功夫熊猫4",
+        },
+      ];
+      var arr2 = [
+        {
+          url: "https://pic.maizuo.com/usr/movie/be17f0784f8a83fbe6be79df1ce1914b.jpg?x-oss-process=image/quality,Q_70",
+          name: "哥斯拉大战金刚3：帝国崛起",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/57116f984c95f7e0abe768550bd78ef9.jpg?x-oss-process=image/quality,Q_70",
+          name: "你想活出怎样的人生",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/adc91ba9d7505d7352260f9d4a6fcff2.jpg?x-oss-process=image/quality,Q_70",
+          name: "黄雀在后！",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/7a4e3daddbe3a35aa4247cb4ae6273cd.jpg?x-oss-process=image/quality,Q_70",
+          name: "草木人间",
+        },
+        {
+          url: "https://pic.maizuo.com/usr/movie/89d7a3bbd98d0ffab74da50cd03641e2.jpg?x-oss-process=image/quality,Q_70",
+          name: "功夫熊猫4",
+        },
+      ];
+      renderHTML(arr1);
+      function renderHTML(arr) {
+        for (var i = 0; i < arr.length; i++) {
+          console.log(arr[i]);
+          var oli = document.createElement("li");
+          oli.innerHTML = `<img src='${arr[i].url}'>
+            <h3>${arr[i].name}</h3>`;
+          list.appendChild(oli);
+        }
+        var isLoading = false;
+        window.onscroll = function () {
+          var listHeight = list.offsetHeight;
+          var listTop = list.offsetTop;
+          //   console.log(listHeight,listTop);
+          var scrollTop =
+            document.documentElement.scrollTop || document.body.scrollTop;
+          var windowHeight = document.documentElement.clientHeight;
+          if (isLoading) return;
+          if (
+            listHeight + listTop - Math.round(windowHeight + scrollTop) <
+            100
+          ) {
+            console.log("到底了");
+            isLoading = true;
+            setTimeout(function(){
+                renderHTML(arr2)
+            },1000)
+            
+          }
+        };
+      }
+    </script>
+  </body>
+</html>

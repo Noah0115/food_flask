@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+
+    //1.创建XHR new XMLHttpRequest
+      var xhr = new XMLHttpRequest();
+      console.log(xhr);
+
+     //2.配置 open(请求方式，请求地址，是否异步)
+     xhr.open("GET","http://127.0.0.1:5500/src/xuexi/1.txt") 
+     //3.send
+     xhr.send()
+     //4.接受数据，注册一个事件
+     /* xhr.onreadystatechange = function(){
+         if(xhr.readyState===4){
+             console.log("数据解析完成",xhr.responseText )
+         }
+     } */
+     //只在4的时候才会进来
+     xhr.onload= function(){
+         if(xhr.status===200){
+             document.write(xhr.responseText)
+         }else if(xhr.status===404){
+             console.error("没有找到页面")
+         }
+     }
+    </script>
+  </body>
+</html>

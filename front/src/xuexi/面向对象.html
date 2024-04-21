@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="box1">
+      <h1></h1>
+      <ul></ul>
+    </div>
+    <script>
+      var data1 = {
+        title: "大傻逼",
+        source: ["sd", "dasd"],
+      };
+      function CreateData(ele,data) {
+        this.ele=document.querySelector(ele)
+        this.title = data.title;
+        this.source = data.source;
+        
+      }
+      CreateData.prototype.render =function(){
+            var h1=this.ele.querySelector("h1")
+            var ul=this.ele.querySelector("ul")
+            h1.innerHTML=this.title
+            ul.innerHTML=this.source.map(item=>`<li>${item}</li>`).join("")
+        }
+      var obj1 = new CreateData(".box1", data1);
+      obj1.render()
+    </script>
+  </body>
+</html>
